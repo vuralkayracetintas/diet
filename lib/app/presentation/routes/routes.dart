@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:diet/main.dart';
 import 'package:flutter/material.dart';
 
