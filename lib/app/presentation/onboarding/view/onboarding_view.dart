@@ -35,11 +35,13 @@ class _OnboardingViewState extends State<OnboardingView> {
     /// Onboarding title value
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            TextField(),
             Expanded(
               flex: 8,
               child: PageView.builder(
@@ -47,15 +49,6 @@ class _OnboardingViewState extends State<OnboardingView> {
                 itemCount: onboardingData.length,
                 itemBuilder: (context, index) => pages[index],
                 onPageChanged: changeIndex,
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                onboardingData.length,
-                (index) {
-                  return buildDot(index, currIndex);
-                },
               ),
             ),
             Expanded(
@@ -73,6 +66,15 @@ class _OnboardingViewState extends State<OnboardingView> {
                 ),
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                onboardingData.length,
+                (index) {
+                  return buildDot(index, currIndex);
+                },
+              ),
+            )
           ],
         ),
       ),
